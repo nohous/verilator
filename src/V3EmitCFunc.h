@@ -257,13 +257,22 @@ public:
         if (const AstCNew* const cnewp = getSuperNewCallRecursep(nodep->nextp())) return cnewp;
         return nullptr;
     }
-
+    const AstCNew* getClassConstructorSuperNewCall(AstClass* classp) {
+        AstCFunc* constructorFunc = nullptr;
+        classp->foreachMember([&](AstClass* /*unused*/, AstCFunc* cfuncp) {
+            if (cfuncp->isConstructor()) {
+                constructorFunc = cfuncp;
+            }
+        });
+        if (!constructorFunc) return nullptr;
+        return getSuperNewCallRecursep(constructorFunc->stmtsp());
+    }
     void putConstructorSubinit(const AstClass* classp, AstCFunc* cfuncp, bool top,
-                               std::set<AstClass*>& doneClassesr) {
+                            std::set<AstClass*>& doneClassesr) {
         for (const AstClassExtends* extp = classp->extendsp(); extp;
-             extp = VN_AS(extp->nextp(), ClassExtends)) {
+            extp = VN_AS(extp->nextp(), ClassExtends)) {
             if (extp->classp()->useVirtualPublic()) {
-                // It's a c++ virtual class (diamond relation)
+                // It's a c++ virtual class (diamond relation)  
                 // Must get the subclasses initialized first
                 putConstructorSubinit(extp->classp(), cfuncp, false, doneClassesr);
             }
@@ -277,9 +286,14 @@ public:
             } else {
                 puts("(vlSymsp");
             }
+            const AstCNew* superNewCallp = nullptr;
             if (top) {
-                const AstCNew* const superNewCallp = getSuperNewCallRecursep(cfuncp->stmtsp());
-                UASSERT_OBJ(superNewCallp, cfuncp, "super.new call not found");
+                superNewCallp = getSuperNewCallRecursep(cfuncp->stmtsp());
+            } else if (extp->classp()->useVirtualPublic() && !extp->classp()->isInterfaceClass()) {
+                superNewCallp = getClassConstructorSuperNewCall(const_cast<AstClass*>(classp));
+            }
+            
+            if (superNewCallp) {
                 putCommaIterateNext(superNewCallp->argsp(), true);
             }
             puts(")");
