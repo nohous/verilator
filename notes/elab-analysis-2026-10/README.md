@@ -9,8 +9,9 @@ running the actual tools (Verilator built from that commit, slang 12.0.0 via pys
 - `elab-analysis-detailed.md` – same content with `file:line` references for every claim.
 - `lrm-algebra-and-generator.md` – the LRM-implied model in six rules and a test generator
   design built on it.
-- `issues/` – eight issue drafts (A–H) in upstream's template, each with its `*_repro.sv`.
-  Diagnostics quoted in each draft were re-run against the example as written.
+- `issues/` – eight issue drafts (A–H) answering upstream's issue template question by question.
+  `issues/t/` holds each example as a real `test_regress` test (`t_<name>.v` + `.py` driver);
+  all eight were run through the harness and fail with exactly the quoted diagnostics.
 - `probes/min/` – 48 minimal probes bisecting the failures (`min_results.md` is the table).
 - `probes/scope/` – the multi-level `::` matrix (29 cases).
 - `probes/owner_tests_vs_master.txt` – raw output of the branch's own tests against master.
