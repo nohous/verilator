@@ -1,0 +1,2 @@
+class Chain #(type E = logic [7:0], type M = E [2:1]); typedef M out_t; endclass
+module t; Chain#(.E(logic [3:0]))::out_t x; initial if ($bits(x) != 8) $stop; endmodule

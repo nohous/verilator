@@ -1,0 +1,5 @@
+class E #(int W = 2); typedef logic [W-1:0] value_t; endclass
+module M #(int W = 3, int D = W + 2, type T = E#(D)::value_t, type U = T, int N = $bits(U) + 4) (output U value);
+  assign value = U'(N);
+endmodule
+module t; logic [4:0] value; M dut (.*); endmodule

@@ -1,0 +1,48 @@
+################ t_class_param_dep_type (sim)
+VERILATE/BUILD FAILED rc=1
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_type.v:259:18: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_type.v:253:25: Parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: Internal Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_type.v:50:15: ../V3LinkDot.cpp:4897: class reference parameter not removed by V3Param
+################ t_module_param_dep_type (sim)
+VERILATE/BUILD FAILED rc=139
+%Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt
+%Error: Command Failed ulimit -s unlimited 2>/dev/null; exec /home/user/verilator/bin/verilator_bin --binary --timing -Wno-fatal -Wno-WIDTH -Wno-UNUSED --Mdir obj -o sim /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_module_param_dep_type.v
+################ t_lparam_dep_converge (sim)
+run rc=0
+*-* All Finished *-*
+################ t_class_default_type_param (sim)
+run rc=0
+################ t_interface_virtual_param (sim)
+VERILATE/BUILD FAILED rc=1
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_virtual_param.v:54:23: Operator ASSIGN expected 'BusDependent__pib39c82ee' interface on Assign RHS but 'intf4' is a different interface ('BusDependent__W5').
+%Error: Exiting due to 1 error(s)
+################ t_interface_virtual_nocell (sim)
+VERILATE/BUILD FAILED rc=1
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_virtual_nocell.v:12:11: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_virtual_nocell.v:13:10: Parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_virtual_nocell.v:14:9: Parameter without default value is never given value (IEEE 1800-2023 6.20.1): 'W'
+%Error: Exiting due to 3 error(s)
+################ t_class_param_dep_cycle_bad (lint)
+rc=139
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_cycle_bad.v:8:10: Recursive type definition
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_cycle_bad.v:14:9: Variable's initial value is circular: 'A'
+%Error-UNSUPPORTED: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_cycle_bad.v:21:29: dotted expressions in parameters
+%Error: Verilator internal fault, sorry. Suggest trying --debug --gdbbt
+%Error: Command Failed ulimit -s unlimited 2>/dev/null; exec /home/user/verilator/bin/verilator_bin --lint-only -Wno-fatal --timing /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_dep_cycle_bad.v
+################ t_interface_param_another_bad (lint)
+rc=1
+%Error-HIERPARAM: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:9:35: Parameter values cannot use hierarchical values (IEEE 1800-2023 6.20.2)
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:9:35: Expecting expression to be constant, but variable isn't const: 'dummy'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:9:17: Can't convert defparam value to constant: Param 'PARAMETER' of 'simple'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:10:16: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:24:10: Parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'T'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_interface_param_another_bad.v:25:9: Parameter without default value is never given value (IEEE 1800-2023 6.20.1): 'W'
+%Error: Exiting due to 6 error(s)
+################ t_class_param_bad2 (lint)
+rc=1
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_bad2.v:16:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'PARAMA'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_bad2.v:16:3: Class parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'PARAMB'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_bad2.v:8:10: Parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'PARAMA'
+%Error: /tmp/claude-0/-home-user-verilator/73064bdf-9e57-5efd-b5c2-b9613ec18888/scratchpad/conv/tests/t_class_param_bad2.v:9:10: Parameter type without default value is never given value (IEEE 1800-2023 6.20.1): 'PARAMB'
+%Error: Exiting due to 4 error(s)
+done rc=0
